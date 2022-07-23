@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <div style="color:black;margin-top:50px">
+  <h2>Materials</h2>
+
+
+  <table class="table" style="color:black">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Uploaded By</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for material in materials %}
+
+    <tr>
+      <td>{{ material.title }}</td>
+      <td>{{ material.author }}</td>
+        <td><a href="{{ material.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+
+  </div>
+  </body>
+</html>

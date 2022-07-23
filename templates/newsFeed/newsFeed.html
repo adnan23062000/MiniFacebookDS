@@ -1,0 +1,36 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mini Facebook</title>
+  </head>
+  <body>
+    <div class="">
+      Stories <br><br>
+    </div>
+
+  <div class="row justify-content-center mt-3 mb-5" style="">
+    <div class="col-md-5 col-sm-12 border-bottom">
+      <form id="ttt" class="" method="POST">
+        {% csrf_token %} {{ form | crispy }}
+        <div class="d-grid gap-2">
+          <button style="background-color:transparent;border:1px solid #f5c71a;margin-left:370px;margin-bottom:100px" class="btn btn-success mt-3" onclick="clicked()">Post!</button>
+        </div>
+        <br />
+      </form>
+    </div>
+  </div>
+
+  {% for post in post_list %}
+    <div id="post" class="row justify-content-center mt-3" style="margin-bottom:100px;width:wrap-content;">
+      <div class="col-md-5 col-sm-12 border-bottom position-relative">
+        <h6 class="lead"><b>{{ post.author }}</b></h6> <p style="font-size:10px">{{ post.created_on }}</p>
+        <p class="lead">{{ post.body }}</p>
+        <br />
+      </div>
+    </div>
+  {% endfor %}
+  </body>
+</html>
