@@ -29,17 +29,14 @@ def userLogin(request):
         password=request.POST.get('password')
         user=authenticate(username=username,password=password)
         if user:
-            invalidlogin=False
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect('/newsfeed')
+                return HttpResponseRedirect('/status')
             else:
                 return HttpResponse('Account not active')
         else:
-            invalidlogin=True
             return render(request,'authUser/login.html',{'invalidlogin':invalidlogin})
     else:
-        invalidlogin=False
         return render(request,'authUser/login.html',{'invalidlogin':invalidlogin})
 
 

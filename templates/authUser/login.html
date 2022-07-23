@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <title>Mini Facebook</title>
-  </head>
-  <body>
+{% extends 'authUser/base.html' %}
+{% block body_block %}
     <style>
   .jumbotron {
     background: linear-gradient(
@@ -100,5 +94,5 @@
   </form>
 </div>
 </div>
-  </body>
-</html>
+
+{% endblock %}

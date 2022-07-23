@@ -1,8 +1,6 @@
-<html>
-<head>
-<title>Mini Facebook</title>
-</head>
-<body>
+{% extends 'authUser/base.html' %}
+{% block body_block %}
+
 <style>
   .form-control {
     width: 500px;
@@ -21,17 +19,18 @@
   .jumbotron {
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
     );
     position: absolute;
-    margin-top: 300px;
-    right: 20%;
-    left: 20%;
-    transform: translate(0, -40%);
+    top: 45%;
+    right: 25%;
+    left: 25%;
+    transform: translate(0, -30%);
     padding: 25px;
-    display: flex;
-    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
   }
 </style>
 <div class="jumbotron">
@@ -41,10 +40,7 @@
   </h1>
   {% else %}
   <div style="text-align:center">
-  <h1
-    class="display-4"
-    style="color: blue; margin-top: 5px"
-  >
+  <h1 class="display-6 text-secondary" style="color: #f5c71a">
     Registration
   </h1>
   <br />
@@ -67,5 +63,4 @@
   {% endif %}
 </div>
 
-</body>
-</html>
+{% endblock %}

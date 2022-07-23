@@ -1,29 +1,74 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-  <div style="color:black;margin-top:50px">
-  <h2>Materials</h2>
+{% extends 'authUser/base.html' %}
+{% block body_block %}
+
+  <style>
+    .button-23 {
+      background-color: #FFFFFF;
+      border: 1px solid #222222;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #222222;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      margin: 0;
+      outline: none;
+      padding: 13px 23px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      touch-action: manipulation;
+      transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+      user-select: none;
+      -webkit-user-select: none;
+      width: auto;
+    }
+
+    .button-23:focus-visible {
+      box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+      transition: box-shadow .2s;
+    }
+
+    .button-23:active {
+      background-color: #F7F7F7;
+      border-color: #000000;
+      transform: scale(.96);
+    }
+
+    .button-23:disabled {
+      border-color: #DDDDDD;
+      color: #DDDDDD;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+  </style>
 
 
-  <table class="table" style="color:black">
+  <div class="" style="margin-top:40px">
+    <a class="button-23" role="button" href="{% url 'upload:upload_material' %}"> + Add a Story</a>
+  </div>
+
+
+  <div style="color:white;margin-top:50px">
+  <h2>Stories</h2>
+
+
+  <table class="table" style="color:white">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Uploaded By</th>
-        <th>Download</th>
+        <th>..</th>
       </tr>
     </thead>
   <tbody>
     {% for material in materials %}
 
     <tr>
-      <td>{{ material.title }}</td>
-      <td>{{ material.author }}</td>
-        <td><a href="{{ material.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+      <td style="text-align:center"><img src="{{ material.pdf.url }}" width="250" height="150" alt=""><br><br>{{ material.author }}<br>
+      {{ material.created_on }}<br></td>
+
       </tr>
 
       {% endfor %}
@@ -31,5 +76,5 @@
   </table>
 
   </div>
-  </body>
-</html>
+
+{% endblock %}
